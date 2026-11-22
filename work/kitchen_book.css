@@ -1,0 +1,142 @@
+/* Reading room, paper and type share the palette of the illustrated homepage. */
+#book-dialog {
+  background: radial-gradient(ellipse at 50% 40%, #365a4b, #203f34 66%, #19382f);
+  color: #fbf5e8;
+}
+html:has(#book-dialog[open]) {scrollbar-gutter:auto}
+#book-dialog .book-shell:has(.recipe-book.is-closed) .book-bar > div:first-child,
+#book-dialog .book-shell:has(.recipe-book.is-closed) #book-toc {visibility:hidden}
+#book-dialog .book-brand {color:#f8f2e3}
+#book-dialog .book-subtitle {color:#ccd6c8}
+#book-dialog .book-reclose {color:#e4e9da;font:500 13px/1.4 var(--reading)}
+#book-dialog .book-close {border:0;background:#ffffff12;color:#f8f2e3}
+#book-dialog .book-stage {flex:0 1 auto;margin-top:auto}
+#book-dialog .book-controls {
+  gap:14px;flex-shrink:0;margin:0 auto auto;
+}
+#book-dialog #book-position {
+  min-width:108px;text-align:center;color:#e5ecdf;
+  font:500 12px/1.4 var(--reading);font-variant-numeric:tabular-nums;
+}
+#book-dialog .book-controls button {
+  display:grid;place-items:center;width:44px;height:44px;padding:0;
+  border:1px solid #ffffff24;border-radius:50%;background:#ffffff0d;color:#f5efde;
+}
+#book-dialog .book-controls button::before {
+  content:"";width:9px;height:9px;border:solid currentColor;border-width:2px 2px 0 0;
+  transform:rotate(45deg);margin-right:3px;
+}
+#book-dialog #book-prev::before {transform:rotate(-135deg);margin:0 0 0 3px}
+#book-dialog .book-controls button:hover:not(:disabled),
+#book-dialog .book-close:hover {background:#ffffff20}
+/* Flat jacket artwork leaves the two cover lines selectable and sharp. */
+#book-dialog .bound-cover .reference-cover {
+  background: #eee7d9 url("JACKET_IMAGE_URL") center/cover no-repeat!important;
+  display:flex;align-items:flex-start;justify-content:flex-start;flex-direction:column;
+  padding:21% 8% 0 10%!important;text-align:left;color:#413a2a;
+}
+.jacket-title {font:700 clamp(30px,9cqh,70px)/1.2 var(--hand);letter-spacing:.045em}
+.jacket-subtitle {margin:.85em 0 0 .2em;font:500 clamp(11px,2.5cqh,18px)/1.5 var(--k-display);letter-spacing:.08em}
+#book-dialog .book-page {
+  --gutter:to right;
+  background-color:#f8f5ea;color:#343c31;
+  background-image:linear-gradient(var(--gutter),#735c3b25,transparent 10%,transparent 96%,#fff3),linear-gradient(#f8f5ea40,#f8f5ea40),url("PAPER_IMAGE_URL");
+  background-size:100% 100%,100% 100%,164px 164px;
+}
+#book-dialog .book-left {--gutter:to left}
+#book-dialog .book-page:after {display:none}
+#book-dialog .editorial-page {padding:clamp(14px,4.5cqh,32px) clamp(18px,4.9cqh,39px) clamp(10px,2.8cqh,21px)}
+#book-dialog .book-page-foot {
+  border-top:1px solid #82755d42;justify-content:space-between;margin-top:clamp(8px,2.3cqh,20px);padding:8px 0 0;
+  color:#706b58;font:500 11px/1.2 var(--reading);letter-spacing:.08em;font-variant-numeric:tabular-nums;
+}
+.book-section-heading h2,.book-chapter h2,#book-dialog .recommendation-title {
+  color:var(--k-forest);margin:0;font:600 clamp(24px,6.1cqh,44px)/1.2 var(--k-display);letter-spacing:.04em;
+}
+#book-dialog .type-toc {
+  --toc-heading-size:clamp(24px,6.1cqh,44px);
+  --toc-heading-gap:clamp(8px,2.2cqh,18px);
+}
+#book-dialog .type-toc .book-section-heading h2,#book-dialog .book-chapter :is(h2,figcaption) {
+  font-family:var(--hand);font-weight:700;
+}
+#book-dialog .book-section-heading {flex:none;margin:0 0 var(--toc-heading-gap)}
+#book-dialog .book-section-heading h2 {font-size:var(--toc-heading-size)}
+@media(min-width:901px) {
+  #book-dialog .editorial-toc:first-child {
+    margin-top:calc(1.2 * var(--toc-heading-size) + var(--toc-heading-gap));
+  }
+}
+#book-dialog :is(.editorial-toc,.type-menu .book-menu-list) {
+  display:grid;flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;
+  scrollbar-width:thin;align-content:stretch;padding:0;
+}
+#book-dialog .editorial-toc {
+  grid-auto-rows:clamp(43px,13.5cqh,94px);align-content:start;
+}
+#book-dialog .editorial-toc button {
+  display:grid;grid-template-columns:clamp(36px,10cqh,72px) minmax(0,1fr) auto;
+  align-items:center;gap:clamp(7px,1.8cqh,14px);min-height:0;padding:4px 0;
+  border:0;border-bottom:1px solid #8c795f25;background:none;text-align:left;
+}
+#book-dialog .editorial-toc button:last-child {border-bottom:0}
+#book-dialog .toc-drawing {display:block;height:clamp(30px,9.5cqh,64px);pointer-events:none}
+#book-dialog .toc-drawing svg {width:100%;height:100%;display:block}
+#book-dialog .toc-entry {min-width:0}
+#book-dialog .toc-entry strong {display:block;color:#253c30;font:600 clamp(16px,3.6cqh,25px)/1.4 var(--k-display)}
+#book-dialog .toc-entry small {display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:3px;color:#746f61;font:400 11px/1.5 var(--reading)}
+#book-dialog .toc-folio {font:italic 500 clamp(15px,3cqh,21px)/1 Georgia,serif;color:#836544}
+#book-dialog .editorial-toc button:hover,#book-dialog .type-menu .book-menu-item:hover {background:#5362440c;transform:none}
+#book-dialog .book-menu-label {
+  flex:none;margin:0 0 clamp(6px,1.6cqh,12px);
+  color:#676354;font:400 clamp(12px,2.5cqh,16px)/1.4 var(--reading);letter-spacing:.04em;
+}
+#book-dialog .type-menu .book-menu-list {
+  grid-auto-rows:clamp(48px,15.5cqh,112px);align-content:start;
+}
+#book-dialog .type-menu .book-menu-item {
+  display:grid;grid-template-columns:minmax(0,1fr) min(41%,clamp(52px,17.5cqh,132px));align-items:center;
+  gap:clamp(8px,2.8cqh,20px);
+  width:100%;height:100%;min-height:0;padding:4px 0;border:0;border-radius:0;
+  border-bottom:1px solid #8c795f35;text-align:left;
+}
+#book-dialog .type-menu .book-menu-item:last-child {border-bottom:0}
+#book-dialog .type-menu .book-menu-item img {
+  width:100%;height:auto;max-height:100%;aspect-ratio:4/3;object-fit:cover;
+  border-radius:var(--k-cover-radius);filter:none;box-shadow:none;
+}
+#book-dialog .type-menu .book-item-copy {min-width:0;gap:4px}
+#book-dialog .type-menu .book-item-copy strong {font:600 clamp(16px,3.6cqh,26px)/1.3 var(--k-display);color:#283c30}
+#book-dialog .type-menu .book-item-copy :is(strong,span) {
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+#book-dialog .type-menu .book-item-copy>span {
+  color:#78705e;font:400 clamp(11px,2cqh,13px)/1.55 var(--reading);margin:0;
+}
+.book-chapter {position:relative;flex:1;min-height:0;display:grid;place-items:center;
+  padding:7%;background:linear-gradient(145deg,#d5dbc15e,#a9b29b30);border-radius:46% 46% 2px 2px}
+.book-chapter h2 {position:absolute;z-index:1;right:8%;top:10%;writing-mode:vertical-rl;font-size:clamp(28px,7.2cqh,54px);letter-spacing:.18em}
+.chapter-art {width:min(95%,48cqh);margin:0;text-align:center}
+.chapter-art svg {width:100%;height:auto;display:block;margin-inline:auto;pointer-events:none}
+.chapter-art figcaption {
+  margin:clamp(2px,.8cqh,6px) 0 0;
+  font-size:clamp(14px,2.85cqh,20px);line-height:1.5;letter-spacing:.04em;color:#3c5142;
+}
+#book-dialog .recommendation-title {font-size:clamp(21px,4.5cqh,32px);align-self:flex-start;margin:0 0 clamp(14px,3vh,26px)}
+#book-dialog .type-recommendation .book-recommendation-note .detail-body {padding:12px 16px 18px}
+#book-dialog .book-recommendation-note h3 {color:#3f472e;font:600 clamp(18px,2vw,25px)/1.35 var(--k-display);margin:4px 0 7px}
+#book-dialog .book-recommendation-note .note-date {color:#786849;font:400 11px/1.4 var(--reading)}
+#book-dialog .book-recommendation-note .note-excerpt {margin:0;color:#514b39;font:400 13px/1.75 var(--reading)}
+#book-dialog button:focus-visible,#book-dialog [role=button]:focus-visible {outline:2px solid #a47431;outline-offset:2px}
+#book-dialog .editorial-toc button:focus-visible,#book-dialog .type-menu .book-menu-item:focus-visible {outline-offset:-2px}
+@media(max-width:900px) {
+  #book-dialog .book-page {--gutter:to bottom}
+  #book-dialog #book-prev::before {transform:rotate(-45deg);margin:4px 0 0}
+  #book-dialog #book-next::before {transform:rotate(135deg);margin:0 0 4px}
+  #book-dialog .book-brand {font-size:16px}
+  #book-dialog .book-reclose {font-size:12px}
+}
+@container cookbook (max-height:410px) {
+  #book-dialog .book-page-foot {margin-top:5px}
+  #book-dialog .type-menu .book-item-copy {gap:3px}
+}

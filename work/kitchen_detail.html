@@ -1,0 +1,31 @@
+<dialog id="detail" aria-labelledby="detail-name" tabindex="-1">
+  <div class="detail-paper">
+    <div class="recipe-heading">
+      <div class="recipe-title-block">
+        <button type="button" class="recipe-return" aria-label="关闭菜品详情"><span aria-hidden="true">‹</span> 返回</button>
+        <div>
+          <p id="detail-meta" class="recipe-method"></p>
+          <h3 id="detail-name"></h3>
+          <p id="record-date" class="recipe-date"></p>
+        </div>
+      </div>
+      <div class="recipe-gallery" role="region" aria-label="菜品图集">
+        <button id="view-photo" type="button" aria-haspopup="dialog"><img id="detail-img" alt=""></button>
+        <button class="gallery-arrow" id="gallery-prev" type="button" aria-label="上一张图片"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+        <button class="gallery-arrow" id="gallery-next" type="button" aria-label="下一张图片"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+        <span id="gallery-position" aria-live="polite" aria-atomic="true"><span id="gallery-label"></span><span id="gallery-count" class="sr-only"></span></span>
+      </div>
+    </div>
+    <div class="recipe-reading">
+      <nav class="recipe-attempts" aria-label="历次做菜记录" hidden><div id="timeline"></div></nav>
+      <div class="recipe-instructions">
+        <section id="ingredients-panel"><h4>食材与调味</h4><div id="ingredients"></div></section>
+        <section><h4>做法</h4><div id="steps"></div></section>
+      </div>
+      <div id="record-notes"></div>
+      <details id="record-extra" hidden><summary>补充记录</summary><div></div></details>
+      <div class="recipe-actions"><button id="source-toggle" type="button" aria-expanded="false" aria-controls="source">查看原始口述</button><button id="download" type="button">下载本次记录</button></div>
+      <pre id="source" hidden></pre>
+    </div>
+  </div>
+</dialog>

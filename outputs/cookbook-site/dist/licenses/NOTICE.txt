@@ -1,0 +1,9 @@
+Amicro / 3D Dither Lab Book adaptation
+Source: https://github.com/Subhan-code/Amicro--Micro-transitions-/blob/main/src/components/dither-charts/DitherBook.tsx
+The original component marks SPDX-License-Identifier: Apache-2.0.
+Repository license: MIT, Copyright (c) 2026 SYED SUBHAN UDDIN.
+Changes: converted React Motion to native Web Animations; added recipe content,
+fullscreen dialog, responsive pages, accessibility and local assets.
+
+Xiaolai v3.126 / 小赖字体 — https://github.com/lxgw/kose-font
+SIL Open Font License 1.1; see Xiaolai-OFL.txt. Unmodified font, bundled for offline use.
